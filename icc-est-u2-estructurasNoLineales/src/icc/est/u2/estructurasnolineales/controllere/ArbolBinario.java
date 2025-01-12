@@ -51,7 +51,7 @@ public class ArbolBinario {
             }
         }
     }
-    /*public Node getRoot(){
-        return Node node;
-    }*/ 
+    public Node getRoot() {
+    return root; // Devuelve la raíz del árbol binario.
+ }
 }

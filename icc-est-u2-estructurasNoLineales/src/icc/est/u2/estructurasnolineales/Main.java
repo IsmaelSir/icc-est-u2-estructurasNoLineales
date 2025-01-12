@@ -2,7 +2,9 @@
 package icc.est.u2.estructurasnolineales;
 
 import icc.est.u2.estructurasnolineales.controllere.ArbolBinario;
+import icc.est.u2.estructurasnolineales.controllere.models.Node;
 import icc.est.u2.estructurasnolineales.main.ejercicio_03_listLevels.ListLevels;
+import java.util.List;
 
 /**
  *
@@ -45,10 +47,48 @@ public class Main {
         }
         arbolBinario.printTree();      
     }
-    public static void runEjercicio3(){
-        /*ArbolBinario arbolBinario = new ArbolBinario();
-        ListLevels levels = new ListLevels();
-        int[] valores = {numeros};
-        for()*/
+    public static void runEjercicio3() {
+    ArbolBinario arbolBinario = new ArbolBinario();
+    ListLevels levels = new ListLevels();
+    int[] valores = {4, 2, 7, 1, 3, 6, 9}; // Valores para el árbol de ejemplo.
+
+    // Construcción del árbol.
+    for (int valor : valores) {
+        arbolBinario.insert(valor);
     }
+
+    // Imprime la estructura del árbol.
+    System.out.println("\nÁrbol para el Ejercicio 3:");
+    arbolBinario.printTree();
+
+    // Obtiene los niveles del árbol.
+    List<List<Node>> niveles = levels.listLevels(arbolBinario.getRoot());
+
+    // Impresión en formato simple.
+    System.out.println("\nFormato Simple:");
+    for (List<Node> nivel : niveles) {
+        for (int i = 0; i < nivel.size(); i++) {
+            System.out.print(nivel.get(i).getValue());
+            if (i < nivel.size() - 1) {
+                System.out.print("->");
+            }
+        }
+        System.out.println();
+    }
+
+    // Impresión en formato detallado.
+    System.out.println("\nFormato Detallado:");
+    for (int i = 0; i < niveles.size(); i++) {
+        List<Node> nivel = niveles.get(i);
+        System.out.print("Nivel " + (i + 1) + ": [ ");
+        for (int j = 0; j < nivel.size(); j++) {
+            System.out.print(nivel.get(j).getValue());
+            if (j < nivel.size() - 1) {
+                System.out.print(" , ");
+            }
+        }
+        System.out.println(" ]");
+    }
+}
+
 }
