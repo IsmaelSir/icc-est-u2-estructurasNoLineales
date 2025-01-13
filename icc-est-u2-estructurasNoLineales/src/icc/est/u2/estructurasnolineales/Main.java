@@ -1,6 +1,7 @@
 
 package icc.est.u2.estructurasnolineales;
 
+import icc.est.u2.estructurasnolineales.controllere.ArbolAVL;
 import icc.est.u2.estructurasnolineales.controllere.ArbolBinario;
 import icc.est.u2.estructurasnolineales.controllere.models.Node;
 import icc.est.u2.estructurasnolineales.main.ejercicio_03_listLevels.ListLevels;
@@ -19,7 +20,8 @@ public class Main {
         //runArbolBinario();
         //runARPreOrden();
         //runARPORecusivo();
-        runEjercicio3();
+        //runEjercicio3();
+        runArbolAVL();
     }
     public static void runArbolBinario(){
         ArbolBinario arbolBinario = new ArbolBinario();
@@ -91,4 +93,12 @@ public class Main {
     }
 }
 
+    public static void runArbolAVL(){
+        int[] values = {10,20,15,24,9,8,21,23,50,25};
+        ArbolAVL arbolAVL = new ArbolAVL();
+        for (int value : values) {
+            arbolAVL.insert(value);
+        }
+        arbolAVL.printTree();
+    }
 }
