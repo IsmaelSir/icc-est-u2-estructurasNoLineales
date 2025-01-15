@@ -1,6 +1,6 @@
 
-package icc.est.u2.estructurasnolineales.main.ejercicio_03_listLevels;
-import icc.est.u2.estructurasnolineales.controllere.models.Node;
+package ejercicio_03_listLevels;
+import controlle.models.Node;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

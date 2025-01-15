@@ -1,6 +1,6 @@
-package icc.est.u2.estructurasnolineales.controllere;
+package controll;
 
-import icc.est.u2.estructurasnolineales.controllere.models.Node;
+import controlle.models.Node;
 
 /**
  *
@@ -11,7 +11,8 @@ public class ArbolAVL {
     
     public void insert(int value) {
         System.out.println("* Nodo a insertar: " + value);
-        root = insert(root, value);      
+        root = insert(root, value); 
+        System.out.println("Nodo insertado: "+value + ", Balance: "+getBalance(root));
     }
 
     private Node insert(Node node, int value) {
@@ -20,20 +21,20 @@ public class ArbolAVL {
             newNode.setHeight(1);
             return newNode;
         }
-        
         if (value < node.getValue()) {
             node.setLeft(insert(node.getLeft(), value));
+             System.out.println("\n Alturas del nodo: "+node.getValue()+" es= "+height(node));
         } else if (value > node.getValue()) {
             node.setRight(insert(node.getRight(), value));
+             System.out.println("\n Altur del nodo: "+node.getValue()+" es= "+height(node));
         } else {
             return node; // Valor duplicado, no se agrega
         }
-        System.out.println("Nodo insertado: "+ value+ ", Balance: "+getBalance(node));
+        System.out.println("\n Nodo actual: "+ node.getValue());
         node.setHeight(1+Math.max(height(node.getLeft()), height(node.getRight())));
         
         ///Obtener el Balance o factor de equilibrio del nodo ancestro
         int balance = getBalance(node);
-        
         // caso izqui izqui
         if(balance >1 && value< node.getLeft().getValue()){
             return rightRotate(node);
@@ -71,6 +72,7 @@ public class ArbolAVL {
         y.setHeight(Math.max(height(y.getLeft()), height(y.getRight())));
         
         System.out.println("Nueva raiz despues de la rotacion izq: "+x.getValue());
+        printTree();
         //devolvemos nueva raiz
         return y;
     }
@@ -89,6 +91,7 @@ public class ArbolAVL {
         x.setHeight(Math.max(height(x.getLeft()), height(x.getRight())));
         
         System.out.println("Nueva raiz despues de la rotacion: "+x.getValue());
+        printTree();
         return x;
     }
     
@@ -103,7 +106,7 @@ public class ArbolAVL {
         if(node== null){
             return 0;
         }
-        return 1;
+        return node.getHeight(); // Devolver la altura almacenada del nodo
     }
     
     public void printTree() {

@@ -1,7 +1,7 @@
 
-package icc.est.u2.estructurasnolineales.controllere;
+package controll;
 
-import icc.est.u2.estructurasnolineales.controllere.models.Node;
+import controlle.models.Node;
 
 /**
  *

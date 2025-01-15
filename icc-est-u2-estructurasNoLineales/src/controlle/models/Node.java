@@ -1,5 +1,5 @@
 
-package icc.est.u2.estructurasnolineales.controllere.models;
+package controlle.models;
 
 /**
  *
